@@ -1,7 +1,7 @@
 'use client'
 
-import { UserContext } from '@/store'
 import { useContext } from 'react'
+import { UserContext } from '../../../../store'
 
 export default function DashBoard() {
   const user = useContext(UserContext)

@@ -1,3 +1,26 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "prettier"]
+  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "overrides": [
+    {
+      "files": [
+        "**/*.tsx",
+        "**/*.ts",
+        "**/*.test.tsx"
+      ],
+      "rules": {
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              ["builtin", "external"], 
+              ["internal"], 
+              ["sibling", "parent", "index"] 
+            ]
+          }
+        ],
+        "import/newline-after-import": ["error", { "count": 1 }],
+        "no-duplicate-imports": ["error"]
+      }
+    }
+  ]
 }

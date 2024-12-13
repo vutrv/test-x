@@ -1,10 +1,9 @@
 import type { Metadata } from 'next'
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
-import { ThemeProvider } from '@mui/material/styles'
+import { CssBaseline } from '@mui/material'
 import fonts from './fonts'
-import { lightTheme } from './theme'
-import { fetchUser } from '@/utils'
-import { UserProvider } from '@/store'
+import { fetchUser } from '../utils'
+import { UserProvider, ThemeProvider } from '../store'
 
 const { geist } = fonts
 
@@ -18,14 +17,14 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const theme = lightTheme
   const user = await fetchUser()
 
   return (
     <html lang="en" className={geist.className}>
       <body>
         <AppRouterCacheProvider>
-          <ThemeProvider theme={theme}>
+          <ThemeProvider>
+            <CssBaseline />
             <UserProvider user={user}>{children}</UserProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>

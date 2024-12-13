@@ -1,12 +1,6 @@
 import React from 'react'
-import { HomePage } from '@/components/pages'
-import CssBaseline from '@mui/material/CssBaseline'
+import HomePage from '../pages/home'
 
 export default function Home() {
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <HomePage />
-    </React.Fragment>
-  )
+  return <HomePage />
 }
